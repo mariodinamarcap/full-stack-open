@@ -5,6 +5,10 @@ const Statistics = ({ good, neutral, bad }) => {
   const promedio = (good * 1 + neutral * 0 + bad * -1) / total
   const positivas = good / total * 100
 
+  if (total === 0) {
+    return <p>No hay opiniones todavía</p>
+  }
+
   return (
     <>
       <h1>Estadísticas</h1>
