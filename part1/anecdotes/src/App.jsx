@@ -17,11 +17,20 @@ const App = () => {
   ]
 
   const [selected, setSelected] = useState(0)
+  const [votos, setVotos] = useState(Array(anecdotes.length).fill(0))
+
+  const votar = () => {
+    const copia = [...votos]
+    copia[selected] += 1
+    setVotos(copia)
+  }
 
   return (
     <div>
       <p>{anecdotes[selected]}</p>
       <MostrarAlAzar setSelected={setSelected} anecdotes={anecdotes} />
+      <p>la cantidad de votos es. : {votos[selected]}</p>
+      <button onClick={votar}>votar</button>
     </div>
   )
 }
